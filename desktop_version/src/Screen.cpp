@@ -3,7 +3,7 @@
 #include "FileSystemUtils.h"
 #include "GraphicsUtil.h"
 
-#include <stdlib.h>
+#include <cstdlib>
 
 // Used to create the window icon
 extern "C"

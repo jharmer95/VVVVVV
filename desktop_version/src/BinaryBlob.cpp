@@ -1,8 +1,8 @@
 #include "BinaryBlob.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 /* FIXME: Abstract to FileSystemUtils! */
 #include <physfs.h>
@@ -80,16 +80,13 @@ void binaryBlob::writeBinaryBlob(const char* _name)
 
 bool binaryBlob::unPackBinary(const char* name)
 {
-	PHYSFS_sint64 size;
-
 	PHYSFS_File *handle = PHYSFS_openRead(name);
-	if (handle == NULL)
+	if (handle == nullptr)
 	{
 		printf("Unable to open file %s\n", name);
 		return false;
 	}
-
-	size = PHYSFS_fileLength(handle);
+	const PHYSFS_sint64 size = PHYSFS_fileLength(handle);
 
 	PHYSFS_read(handle, &m_headers, 1, sizeof(resourceheader) * 128);
 
@@ -100,7 +97,7 @@ bool binaryBlob::unPackBinary(const char* name)
 		if (m_headers[i].valid)
 		{
 			PHYSFS_seek(handle, offset);
-			m_memblocks[i] = (char*) malloc(m_headers[i].size);
+			m_memblocks[i] = new char[m_headers[i].size];
 			PHYSFS_read(handle, m_memblocks[i], 1, m_headers[i].size);
 			offset += m_headers[i].size;
 		}
@@ -122,7 +119,7 @@ bool binaryBlob::unPackBinary(const char* name)
 	return true;
 }
 
-int binaryBlob::getIndex(const char* _name)
+int binaryBlob::getIndex(const char* _name) const
 {
 	for (int i = 0; i < 128; i += 1)
 	{
@@ -134,7 +131,7 @@ int binaryBlob::getIndex(const char* _name)
 	return -1;
 }
 
-int binaryBlob::getSize(int _index)
+int binaryBlob::getSize(int _index) const
 {
 	return m_headers[_index].size;
 }

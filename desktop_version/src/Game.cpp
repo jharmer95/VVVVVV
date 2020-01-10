@@ -5,9 +5,9 @@
 #include "Entity.h"
 #include "Map.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 #include <sstream>
 
@@ -21,7 +21,7 @@
 
 // lol, Win32 -flibit
 #ifdef _WIN32
-#define strcasecmp stricmp
+#define strcasecmp _stricmp
 #endif
 
 //TODO: Non Urgent code cleanup
@@ -3180,7 +3180,7 @@ void Game::updatestate( Graphics& dwgfx, mapclass& map, entityclass& obj, Utilit
 								NETWORK_unlockAchievement("vvvvvvcomplete50");
 							}
 						}
-						
+
 
             savestats(map, dwgfx);
             if (nodeathmode)
@@ -4553,7 +4553,7 @@ void Game::savestats( mapclass& _map, Graphics& _dwgfx )
     msg->LinkEndChild( new TiXmlText( tu.String(fullScreenEffect_badSignal).c_str()));
     dataNode->LinkEndChild( msg );
 
-		
+
     msg = new TiXmlElement( "usingmmmmmm" );
     msg->LinkEndChild( new TiXmlText( tu.String(usingmmmmmm).c_str()));
     dataNode->LinkEndChild( msg );

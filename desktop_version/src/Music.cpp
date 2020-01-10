@@ -1,5 +1,5 @@
 #include <SDL.h>
-#include <stdio.h>
+#include <cstdio>
 #include "Music.h"
 #include "BinaryBlob.h"
 

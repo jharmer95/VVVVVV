@@ -25,9 +25,9 @@ public:
 
 	bool unPackBinary(const char* _name);
 
-	int getIndex(const char* _name);
+	int getIndex(const char* _name) const;
 
-	int getSize(int _index);
+	int getSize(int _index) const;
 
 	char* getAddress(int _index);
 

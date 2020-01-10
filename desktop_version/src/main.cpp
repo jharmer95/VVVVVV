@@ -26,8 +26,8 @@
 #include "FileSystemUtils.h"
 #include "Network.h"
 
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
+#include <cstring>
 
 scriptclass script;
  edentities edentity[3000];

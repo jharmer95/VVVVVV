@@ -6,8 +6,7 @@
 #include "KeyPoll.h"
 #include "Map.h"
 #include "Script.h"
-//#include "UtilityClass.h"
-#include "time.h"
+#include <ctime>
 
 #include "tinyxml.h"
 

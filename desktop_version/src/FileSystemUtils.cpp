@@ -3,9 +3,9 @@
 #include <vector>
 #include <string>
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 #include <SDL.h>
 #include <physfs.h>
@@ -17,7 +17,7 @@
 #define VNEEDS_MIGRATION (mkdirResult != 0)
 #elif defined(__linux__) || defined(__APPLE__)
 #include <sys/stat.h>
-#include <limits.h>
+#include <climits>
 #define VNEEDS_MIGRATION (mkdirResult == 0)
 /* These are needed for PLATFORM_* crap */
 #include <unistd.h>
